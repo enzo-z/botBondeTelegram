@@ -1,4 +1,5 @@
 node_modules/
 
 # Local development
-writedThisStream.txt  
+writedThisStream.txt
+private/writedThisStream.txt  
