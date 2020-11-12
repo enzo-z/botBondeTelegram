@@ -3,3 +3,6 @@ node_modules/
 # Local development
 writedThisStream.txt
 private/writedThisStream.txt  
+
+# Messing around
+private/test.js
