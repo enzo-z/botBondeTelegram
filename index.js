@@ -9,8 +9,6 @@ const {sendMedia, isAdm, getUserId} = require("./src/miscFunctions");
 const insideJokes = require("./private/insideJokes");
 const { punishLuizAudio } = require('./private/insideJokes');
 
-
-
 const botUsername = '@JigsawBonde_bot';
 const bot = new TelegramBot(token, {polling: true});
 
@@ -30,40 +28,40 @@ bot.on('message', async (msg) => {
                 await sendMedia(bot, msg, 'PeakyBlinder', '.gif', {});
                 bot.kickChatMember(msg.chat.id, users.luiz.id);
             }
-            
         }
-        //Functions
-
-        bot.onText(/\/ideologia/i, (msg) => { //Send the ideology of group w command: '/ideologia'
-            funcIdeologia(bot, msg);
-        });
-
-        bot.onText(/\/dice/i, (msg) => { //Send funny gif and dice w command: /dice
-            funcDice(bot, msg);
-        });
-
-        bot.onText(new RegExp(`${botUsername}`, 'gi'), (msg) => { //Send funny gif hello when u tag bot
-            funcHelloThere(bot, msg);
-        });
-
-        bot.onText(/\/stab @/i, (msg) => { //Delete the /stab, send funny gif and ban user tagged
-            funcStab(bot, msg);
-        });
-
-        bot.onText(new RegExp(`${insideJokes.qntdK}`, 'gi'), (msg) => {
-            funcQntdDeK(bot, msg);
-        });
-
-        bot.onText(/kek/ig, (msg) => {
-            funcKekRafael(bot, msg);
-        });
-
-
     } catch (error) {
         console.log("----------------------------------------------")
         console.log("ERROR NO EVENTO MENSAGEM: \n"+error);
         console.log("----------------------------------------------");
     }
+});
+
+/**
+ * BOT FUNCTIONS -> src/botFunctions.js
+ */
+
+bot.onText(/\/ideologia/i, (msg) => { //Send the ideology of group w command: '/ideologia'
+    funcIdeologia(bot, msg);
+});
+
+bot.onText(/\/dice/i, (msg) => { //Send funny gif and dice w command: /dice
+    funcDice(bot, msg);
+});
+
+bot.onText(new RegExp(`${botUsername}`, 'gi'), (msg) => { //Send funny gif hello when u tag bot
+    funcHelloThere(bot, msg);
+});
+
+bot.onText(/\/stab @/i, (msg) => { //Delete the /stab, send funny gif and ban user tagged
+    funcStab(bot, msg);
+});
+
+bot.onText(new RegExp(`${insideJokes.qntdK}`, 'gi'), (msg) => {
+    funcQntdDeK(bot, msg);
+});
+
+bot.onText(/kek/ig, (msg) => {
+    funcKekRafael(bot, msg);
 });
 
 bot.onText(/\/ban/, async (msg) => {

@@ -1,4 +1,4 @@
-const {isAdm, sendMedia} = require('./miscFunctions');
+const {getUserId, isAdm, sendMedia} = require('./miscFunctions');
 const insideJokes = require("../private/insideJokes");
 const users = require('../private/users');
 
